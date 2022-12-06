@@ -1,21 +1,13 @@
-# AOC
+# Advent of Code 2022 in Elixir
 
-**TODO: Add description**
+There's an `eval` function in the [AOC.Helpers](https://github.com/augusto1024/aoc-2022-elixir/blob/main/lib/helpers.ex) module to test the solutions with the given [inputs](https://github.com/augusto1024/aoc-2022-elixir/tree/main/inputs).
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `aoc` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:aoc, "~> 0.1.0"}
-  ]
-end
+- Open an iex terminal
+```bash
+iex -S mix
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/aoc>.
-
+- Run
+```bash
+AOC.Helpers.eval(&AOC.Day1.Puzzle1.get_elves_calories/1, "inputs/day1.txt")
+```
