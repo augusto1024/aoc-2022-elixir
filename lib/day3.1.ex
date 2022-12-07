@@ -9,7 +9,6 @@ defmodule AOC.Day3.Puzzle1 do
         |> Enum.split(round(String.length(&1) / 2))
         |> get_repeated_items)
     )
-    |> IO.inspect()
     |> Enum.map(&get_item_priority(List.to_string(&1)))
     |> Enum.sum()
   end
@@ -34,7 +33,7 @@ defmodule AOC.Day3.Puzzle1 do
     end
   end
 
-  defp get_item_priority(item) do
+  def get_item_priority(item) do
     ascii_value = :binary.first(item)
 
     if ascii_value <= 90 do
