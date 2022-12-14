@@ -1,14 +1,6 @@
 defmodule AOC.Day8.Puzzle1 do
   def get_visible_trees(forest) do
-    tree_matrix =
-      forest
-      |> String.trim()
-      |> String.split(~r/\n/)
-      |> Enum.map(
-        &(Regex.scan(~r/\d/, &1)
-          |> List.flatten()
-          |> Enum.map(fn tree -> String.to_integer(tree) end))
-      )
+    tree_matrix = get_tree_matrix(forest)
 
     tree_matrix_with_index =
       tree_matrix
@@ -22,6 +14,17 @@ defmodule AOC.Day8.Puzzle1 do
     |> List.flatten()
     |> Enum.filter(fn visible -> visible end)
     |> Enum.count()
+  end
+
+  def get_tree_matrix(forest) do
+    forest
+    |> String.trim()
+    |> String.split(~r/\n/)
+    |> Enum.map(
+      &(Regex.scan(~r/\d/, &1)
+        |> List.flatten()
+        |> Enum.map(fn tree -> String.to_integer(tree) end))
+    )
   end
 
   defp is_visible({tree_x, tree_y} = tree, forest) do
